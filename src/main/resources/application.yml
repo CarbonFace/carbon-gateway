@@ -1,0 +1,25 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: Carbon-Gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+
+eureka:
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8008/eureka/
+
+logging:
+  config: classpath:log4j/log4j2-info.yml
+  level:
+    org.springframework.cloud.gateway: debug
