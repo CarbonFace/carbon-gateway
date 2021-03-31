@@ -31,15 +31,6 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:8008/eureka/
 
-feign:
-  client:
-    config:
-      default:
-        connectTimeout: 5000
-        readTimeout: 5000
-        loggerLevel: basic
-        requestInterceptors: cn.carbonface.carboncommon.interceptor.FeignClientInterceptor
-
 logging:
   config: classpath:log4j/log4j2-info.yml
 #  level:
@@ -58,6 +49,6 @@ jwt:
   # refresh time
   refreshTime: 7
   # no jwt need filter
-  antMatchers: /login/**,/user/register
+  antMatchers: /login/**,/carbonface/hello/hello
 #mybatis:
 #  mapper-locations: classpath*：mybatis/mapper/*Mapper.xml
