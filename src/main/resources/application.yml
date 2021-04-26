@@ -1,8 +1,14 @@
 server:
   port: 8080
+info:
+  groupId: @project.groupId@
+  artifactId: @project.artifactId@
+  version: @project.version@
 spring:
   application:
     name: Carbon-Gateway
+  profiles:
+    active: dev
   cloud:
     gateway:
       discovery:
@@ -17,10 +23,3 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8008/eureka/
-
-logging:
-  config: classpath:log4j/log4j2-info.yml
-#  level:
-#    org.springframework.cloud.gateway: debug
-
-# jwt config properties

@@ -1,0 +1,32 @@
+spring:
+  #profiles defined
+  config:
+    activate:
+      on-profile: prod
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: when_authorized
+logging:
+  config: classpath:log4j/log4j2-info.yml
+#  config: src/main/resources/log4j2-config.xml
+#  level:
+#    cn.jay.repository: trace
+
+jwt:
+  # secret Key
+  secret: JWTSecret,CarbonFace
+  # HeaderKey
+  tokenHeader: Authorization
+  # Token head
+  tokenPrefix: Bearer
+  # expire time
+  expiration: 3600
+  # refresh time
+  refreshTime: 7
+  # no jwt need filter
+  antMatchers: /login/**
